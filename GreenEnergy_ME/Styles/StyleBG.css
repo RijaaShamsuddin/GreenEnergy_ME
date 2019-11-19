@@ -1,0 +1,22 @@
+﻿
+body
+{
+	background-image: #B4B4B4 url(Img/FBC.gif) repeat left top;
+	
+}
+#menu
+{
+z-index:1;
+position:fixed;
+width:100%;
+left:0px;
+top:0px;
+}
+
+#res
+{
+position:relative;
+width:100%;
+left:0px;
+top:90px;
+}

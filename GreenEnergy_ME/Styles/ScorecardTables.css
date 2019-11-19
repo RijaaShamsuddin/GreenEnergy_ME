@@ -1,0 +1,34 @@
+﻿form {
+    font-family: Calibri; font-size : small; white-space : nowrap; 
+}
+.TableBordered
+{
+    border: solid 2px; border-collapse: collapse;
+}
+
+.TableBordered th
+{
+   height: 24px; 
+   padding: 2px; 
+   border: solid 1px #9C9999; 
+   background-color: #b30009; 
+   color: #FFFFFF; 
+   height: 24px;
+   text-align : center; 
+   white-space : nowrap;
+   
+} 
+
+.td
+{
+   font-weight:bold;
+} 
+
+.TableBordered td,.TableBordered td
+{
+    border: solid 1px #9C9999;
+    border-collapse: collapse;
+    padding: 1px;
+    text-align : left;
+    white-space : nowrap;
+}

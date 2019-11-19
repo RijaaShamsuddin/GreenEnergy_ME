@@ -1,0 +1,280 @@
+﻿
+form
+{
+    font-family: Calibri; font-size : small; white-space : nowrap; 
+}
+    
+.Heading
+{
+	 font-weight:bold; text-align:center; font-size:large; 
+}
+
+.SubHeading
+{
+    font-weight:bold; text-align:center; 
+}
+
+.DdlList,.TextBox
+{
+    font-size: smaller;
+}
+
+.Button
+{
+    line-height:11px;  font-size:11px;
+}
+
+.topBorder
+{
+	border-top : solid 3px #003366;
+	
+	}
+	
+.bottomBorder
+{
+	border-bottom : solid 3px #003366;
+	
+	}
+
+.rightBorder
+{
+	border-right : solid 3px #003366;
+	
+	}
+
+.HiliteRed
+{
+    background-color: #E71700; 
+}
+
+.HiliteYellow
+{
+    background-color: #ffcc66;
+}
+
+.HiliteGreen
+{
+    background-color: #88CA4C;
+}
+
+.Error
+{
+	font-style:italic;
+	color:Red;
+	text-align:center;
+    
+}
+
+.Successful
+{
+	font-style:italic;
+	color:green;
+	text-align:center;
+    
+}
+
+.Message
+{
+	font-style:italic;
+	color:Blue;
+	text-align:center;
+
+   
+}
+
+
+
+.Table
+{
+    border: solid 2px #C30537; 
+    border-collapse: collapse;
+	margin-left: 0px;
+    width: 1300px;
+	margin-top: 8px;
+}
+
+
+.Table th
+{
+   height: 24px; 
+   padding: 2px; 
+   border: solid 1px #9C9999; 
+   background-color: #003366; 
+   color: #FFFFFF; 
+   height: 24px;
+   text-align : center; 
+   white-space : nowrap;
+} 
+
+.Footer td
+{
+	font-weight : bold;
+	height: 24px; 
+    padding: 2px; 
+    border: solid 1px #9C9999; 
+    background-color: #003366; 
+    color: #FFFFFF; 
+    height: 24px; 
+    white-space : nowrap;
+	}
+
+.Footer td a
+{
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+.Table td
+{
+    border: solid 1px #C30537;
+    padding: 1px;
+    text-align : left;
+    white-space : nowrap;
+}
+
+.CenterAlign td
+{
+    border: solid 1px #9C9999;
+    border-collapse: collapse;
+    padding: 1px;
+    text-align : center;
+    white-space : nowrap;
+}
+
+.Datalist
+{
+     border: solid 2px #C30537; 
+     border-collapse: collapse;
+	margin-left: 0px;
+	margin-top: 8px;
+}
+
+.SubTable1
+{
+	border-collapse : collapse; 
+	}
+
+.SubTable1 th,.TableSubheader th
+{
+    background-color: #CDDAF0; color: #000000; height: 22px; padding: 2px; text-align : center; white-space : nowrap;
+}
+
+.SubTable1 td
+{   
+    height: 18px; padding: 1px; text-align : left; white-space : nowrap;
+}
+
+.Footer1 td
+{
+	font-weight : bold;
+	text-align : left;
+	background-color: #CDDAF0; 
+	height: 22px; 
+	padding: 2px;
+	white-space : nowrap;
+	}
+
+.SubTable2
+{
+	border-collapse : collapse;
+	}
+
+.SubTable2 th
+{
+    background-color: #CCC7C7; color: #000000; height: 20px; padding: 1px; text-align : center; white-space : nowrap;
+}
+
+.SubTable2 td
+{   
+    height: 18px; padding: 1px; text-align : left; white-space : nowrap;
+}
+
+.Footer2 td
+{
+	font-weight : bold;
+	text-align : left;
+	background-color: #CCC7C7; 
+	height: 20px; 
+	padding: 1px;
+    white-space : nowrap;
+	}
+	
+.NoBorder
+{
+	border-style : none; 
+}
+.CollapsedBorder
+{
+	border-collapse: collapse; 
+}
+
+.NoBorder td, th
+{
+	border-style : none;
+	font-weight : bold;
+	text-align : right;
+	white-space : nowrap;
+}
+.NoBorder th
+{
+   text-align : center;
+   height: 24px; 
+   padding: 2px; 
+   white-space : nowrap;
+}	
+.NoBorder td table
+ {
+ 		float : right;
+}
+ 	
+.NoWrap td
+{
+	white-space:nowrap;
+}
+    
+.SideHeader 
+{
+    background-color: #CDDAF0; color: #000000; font-weight:bold; 
+} 
+
+.lbl
+{
+	font-weight : bold; font-style : italic;
+}
+	
+.ErMsg
+{
+  color: Red;  
+}
+	
+.lnk
+{
+	float : right; 
+	vertical-align : middle; 
+	font-style : italic;
+	font-weight : normal;
+	white-space : nowrap;
+	}
+
+.lbl {
+    font-style:normal;
+    vertical-align:middle;
+      font-weight:bold;
+      text-align : center;
+      font-size:x-large;
+}
+
+.hdt {
+    font-weight:bold;
+    text-decoration-style:solid;
+    text-decoration: underline;
+    background-color:#003366;
+      color:White;
+      border: solid 2px #C30537; 
+    border-collapse: collapse;
+	margin-left: 0px;
+    width: 1300px;
+	margin-top: 8px;
+    font-size:larger;
+   
+}

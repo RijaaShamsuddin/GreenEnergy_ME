@@ -16,14 +16,13 @@ namespace GreenEnergy_ME
         //DataTable Cond_Table;
         public int report = 0, dep_id, dep_id_rep;
         public string client_no, cpno, nat_bus;
-        DataTable dt;
+        DataTable dt, dt_market;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //client_no = Request["client_no"];
             //cpno = Request["cpno"];
             //dep_id = Convert.ToInt32(Request["dep_id"]);
-
             client_no = "21116";
             cpno = "109447";
 
@@ -36,51 +35,30 @@ namespace GreenEnergy_ME
                 dep_id_rep = 0;
             }
 
-            brwr = new Models.ModelView();
-            dt = new DataTable();
-            dt = brwr.get_brwrtype(client_no);
-            hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
-
-        }
-
-        protected void btnsavedata_Click(object sender, EventArgs e)
-        {
-
-            int vstatus = 0;
-            string error_status = "";
-            try
+            if (!IsPostBack)
             {
+                brwr = new Models.ModelView();
+                dt = new DataTable();
+                dt = brwr.get_brwrtype(client_no);
+                hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
+
                 obj_cond = new Models.ModelView();
-                // Cond_Table = new DataTable();
-                vstatus = obj_cond.Add_MarketInfo_Details(client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), txtsuppname.Text, Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtsupptenor.Text, txtcustname.Text,
-                    Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtcusttenor.Text, ref error_status);
-                if (vstatus == 1)
+                dt_market = new DataTable();
+                dt_market = obj_cond.get_marketinfo(client_no, cpno);
+                if (dt_market.Rows.Count > 0 && dt_market != null)
                 {
-                    lblmsg.Visible = true;
-                    lblmsg.Text = "Record Inserted Succesfully";
-                    lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
-                    txtsuppname.Text = "";
-                    txtsupptenor.Text = "";
-                    flsuppcash.Text = "";
-                    flsuppcredit.Text = "";
-                    txtcustname.Text = "";
-                    txtcusttenor.Text = "";
-                    flcustcash.Text = "";
-                    flcustcredit.Text = "";
-
+                    txtsuppname.Text = dt_market.Rows[0]["supp_name"].ToString();
+                    txtsupptenor.Text = dt_market.Rows[0]["supp_tenor"].ToString();
+                    flsuppcash.Text = dt_market.Rows[0]["supp_cash"].ToString();
+                    flsuppcredit.Text = dt_market.Rows[0]["supp_credit"].ToString();
+                    txtcustname.Text = dt_market.Rows[0]["cust_name"].ToString();
+                    txtcusttenor.Text = dt_market.Rows[0]["cust_tenor"].ToString();
+                    flcustcash.Text = dt_market.Rows[0]["cust_cash"].ToString();
+                    flcustcredit.Text = dt_market.Rows[0]["cust_credit"].ToString();
 
                 }
-                else
-                {
-                    throw new Exception(error_status);
-                }
-
             }
-            catch (Exception ex)
-            {
-                this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + error_status + "')", true);
 
-            }
         }
 
 
@@ -94,25 +72,36 @@ namespace GreenEnergy_ME
                     && txtcustname.Text != "" && txtcusttenor.Text != "" && flcustcash.Text != "" && flcustcredit.Text != "")
                 {
                     obj_cond = new Models.ModelView();
-                    vstatus = obj_cond.Add_MarketInfo_Details(txtsuppname.Text, Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtsupptenor.Text, txtcustname.Text,
+                    vstatus = obj_cond.Update_MarketInfo_Details(client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), txtsuppname.Text, Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtsupptenor.Text, txtcustname.Text,
                     Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtcusttenor.Text, ref error_status);
                     if (vstatus == 1)
                     {
-                        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Update Record Successfully')", true);
-                        txtbhmin.Text = "";
-                        txtbhmax.Text = "";
-                        txtbhavg.Text = "";
-                        txtbsmin.Text = "";
-                        txtbsmax.Text = "";
-                        txtbsavg.Text = "";
+                        lblmsg.Visible = true;
+                        lblmsg.Text = "Record Inserted Succesfully";
+                        lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
+                        txtsuppname.Text = "";
+                        txtsupptenor.Text = "";
+                        flsuppcash.Text = "";
+                        flsuppcredit.Text = "";
+                        txtcustname.Text = "";
+                        txtcusttenor.Text = "";
+                        flcustcash.Text = "";
+                        flcustcredit.Text = "";
 
-                        obj_HSCode = new ModelView.clsHSVIew();
-                        DT_HS_Code = new DataTable();
-                        DT_HS_Code = obj_HSCode.GET_Reject_Detail();
-                        if (DT_HS_Code.Rows.Count > 0 && DT_HS_Code != null)
+                        obj_cond = new Models.ModelView();
+                        dt_market = new DataTable();
+                        dt_market = obj_cond.get_marketinfo(client_no, cpno);
+                        if (dt_market.Rows.Count > 0 && dt_market != null)
                         {
-                            grd_HSCode_View.DataSource = DT_HS_Code;
-                            grd_HSCode_View.DataBind();
+                            txtsuppname.Text = dt_market.Rows[0]["supp_name"].ToString();
+                            txtsupptenor.Text = dt_market.Rows[0]["supp_tenor"].ToString();
+                            flsuppcash.Text = dt_market.Rows[0]["supp_cash"].ToString();
+                            flsuppcredit.Text = dt_market.Rows[0]["supp_credit"].ToString();
+                            txtcustname.Text = dt_market.Rows[0]["cust_name"].ToString();
+                            txtcusttenor.Text = dt_market.Rows[0]["cust_tenor"].ToString();
+                            flcustcash.Text = dt_market.Rows[0]["cust_cash"].ToString();
+                            flcustcredit.Text = dt_market.Rows[0]["cust_credit"].ToString();
+
                         }
 
                     }
@@ -129,4 +118,5 @@ namespace GreenEnergy_ME
         }
 
     }
+
 }

@@ -13,9 +13,11 @@ namespace GreenEnergy_ME
 {
     public partial class Loan_GreenEnergy_ME : System.Web.UI.Page
     {
+        Models.ModelView get;
         dbAccess db = new dbAccess();
         Formats data = new Formats();
         DataSet ds,ds1;
+        DataTable dtm;
 
         public int report = 0, dep_id, dep_id_rep;
         public string client_no,cpno,nat_bus;
@@ -49,6 +51,12 @@ namespace GreenEnergy_ME
             ds1 = Directors_Details(client_no, cpno, 0, dep_id_rep);
             dir_details.DataSource = ds1.Tables[0];
             dir_details.DataBind();
+
+            get = new Models.ModelView();
+            dtm = new DataTable();
+            dtm = get.get_marketinfo(client_no, cpno);
+            marketinfo.DataSource = dtm;
+            marketinfo.DataBind();
 
             if (ds.Tables[3].Rows[0]["Nature_of_Business"].ToString() != "-")
             {

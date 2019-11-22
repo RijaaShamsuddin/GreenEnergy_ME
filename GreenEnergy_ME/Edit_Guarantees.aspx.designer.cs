@@ -10,7 +10,7 @@
 namespace GreenEnergy_ME {
     
     
-    public partial class Loan_GreenEnergy_ME {
+    public partial class Edit_Guarantees {
         
         /// <summary>
         /// Table control.
@@ -40,57 +40,75 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Repeater control.
+        /// lblmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater;
+        protected global::System.Web.UI.WebControls.Label lblmsg;
         
         /// <summary>
-        /// dir_details control.
+        /// txtguarantorname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater dir_details;
+        protected global::System.Web.UI.WebControls.TextBox txtguarantorname;
         
         /// <summary>
-        /// GridView1 control.
+        /// txttowhom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox txttowhom;
         
         /// <summary>
-        /// marketinfo control.
+        /// flamtguarantee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater marketinfo;
+        protected global::System.Web.UI.WebControls.TextBox flamtguarantee;
         
         /// <summary>
-        /// Button1 control.
+        /// flnetworthguaran control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox flnetworthguaran;
         
         /// <summary>
-        /// Button2 control.
+        /// vddate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox vddate;
+        
+        /// <summary>
+        /// hdfbrwr_type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfbrwr_type;
+        
+        /// <summary>
+        /// btnupdatedata control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnupdatedata;
     }
 }

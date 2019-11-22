@@ -44,7 +44,7 @@ namespace GreenEnergy_ME.Models
                 this.db.Cn.Open();
                 this.db.Cmd.CommandType = CommandType.Text;
                 this.db.Cmd.CommandTimeout = 0;
-                string st = "Select * from Market_info where client_no = '" + client_no + "' and cpno = '" + cpno + "' order by id desc ";    
+                string st = "Select top 1* from Market_info where client_no = '" + client_no + "' and cpno = '" + cpno + "' order by id desc ";    
                 this.db.Cmd.CommandText = st;
                 this.db.Da.SelectCommand = this.db.Cmd;
                 DataTable dt = new DataTable();
@@ -118,6 +118,30 @@ namespace GreenEnergy_ME.Models
                 //throw exception;
             }
 
+        }
+
+        public DataTable get_guaranteeinfo(string client_no, string cpno)
+        {
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "Select top 1 * from Guarantees where client_no = '" + client_no + "' and cpno = '" + cpno + "' order by id desc ";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
         }
 
         public int Add_Guarantees(string client_no, string cpno, int brwr_type, string guarantor_name, string guarantee_given,

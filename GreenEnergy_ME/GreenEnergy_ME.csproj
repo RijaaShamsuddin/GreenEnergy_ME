@@ -184,6 +184,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Edit_Guarantees.aspx" />
     <Content Include="Edit_Market_Info.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Guarantees.aspx.cs">
+      <DependentUpon>Edit_Guarantees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_Guarantees.aspx.designer.cs">
+      <DependentUpon>Edit_Guarantees.aspx</DependentUpon>
     </Compile>
     <Compile Include="Edit_Market_Info.aspx.cs">
       <DependentUpon>Edit_Market_Info.aspx</DependentUpon>

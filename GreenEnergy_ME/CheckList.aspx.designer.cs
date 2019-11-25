@@ -10,7 +10,7 @@
 namespace GreenEnergy_ME {
     
     
-    public partial class Loan_GreenEnergy_ME {
+    public partial class CheckList {
         
         /// <summary>
         /// Table control.
@@ -40,66 +40,57 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Repeater control.
+        /// lblmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater;
+        protected global::System.Web.UI.WebControls.Label lblmsg;
         
         /// <summary>
-        /// dir_details control.
+        /// cnic_y control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater dir_details;
+        protected global::System.Web.UI.WebControls.RadioButton cnic_y;
         
         /// <summary>
-        /// GridView1 control.
+        /// cnic_n control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.RadioButton cnic_n;
         
         /// <summary>
-        /// marketinfo control.
+        /// cnic_na control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater marketinfo;
+        protected global::System.Web.UI.WebControls.RadioButton cnic_na;
         
         /// <summary>
-        /// Repeater1 control.
+        /// hdfbrwr_type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.HiddenField hdfbrwr_type;
         
         /// <summary>
-        /// Button1 control.
+        /// btnsavedata control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnsavedata;
     }
 }

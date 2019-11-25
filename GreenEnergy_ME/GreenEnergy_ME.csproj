@@ -176,6 +176,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Add_Guarantees.aspx" />
     <Content Include="bin\CIIRSUtility.dll" />
+    <Content Include="CheckList.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -383,6 +384,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="CheckList.aspx.cs">
+      <DependentUpon>CheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckList.aspx.designer.cs">
+      <DependentUpon>CheckList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

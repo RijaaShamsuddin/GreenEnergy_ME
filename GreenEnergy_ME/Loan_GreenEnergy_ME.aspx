@@ -381,6 +381,66 @@
               </div>
            </div>
 
+              <div class ="row" style="margin-top: 15px;">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                  <table id="Table13" class="Table" style="width: 100%;">
+                <tr><td colspan="12" class="row_heading">Market Information</td></tr>
+            <asp:Repeater ID="Repeater1" runat="server">
+               <HeaderTemplate>
+                   <tr><td class="td"   rowspan ="2">Suppliers</td>
+                       <td class="td"  >Name</td>
+                       <td class="td"  >Terms of Trade (Cash or Credit Based)</td>
+                       <td class="td"   rowspan ="2">Customers</td>
+                       <td class="td"  >Name</td>
+                       <td class="td"  >Terms of Trade (Cash or Credit Based)</td>
+                   </tr>
+               </HeaderTemplate>
+               <ItemTemplate> 
+                   <tr>  
+                       <td   class="whitespace">
+                       <label><%# Eval("supp_name") %>&nbsp;</label></td>
+                       <td>
+                       <table style="border-collapse: collapse; border: none;">
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Cash(%):</td>
+                            <td style="border: none;" class="td"  ><%# Eval("supp_cash") %></td>
+                        </tr>
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Credit(%):</td>
+                            <td style="border: none;" class="td"  ><%# Eval("supp_credit") %></td>
+                        </tr>
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Tenor:</td>
+                            <td style="border: none;" class="td"  ><%# Eval("supp_tenor") %></td>
+                        </tr>
+                       </table>
+                           </td>
+                       <td   class="whitespace">
+                       <label><%# Eval("cust_name") %>&nbsp;</label></td>
+                       <td>
+                       <table style="border-collapse: collapse; border: none;">
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Cash(%):</td>
+                            <td style="border: none;" class="td"  ><%# Eval("cust_cash") %></td>
+                        </tr>
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Credit(%):</td>
+                            <td style="border: none;" class="td"  ><%# Eval("cust_credit") %></td>
+                        </tr>
+                        <tr style="border: none;">
+                            <td style="border: none;"  >Tenor:</td>
+                            <td style="border: none;" class="td"  ><%# Eval("cust_tenor") %></td>
+                        </tr>
+                       </table>
+                           </td>
+
+                   </tr>
+               </ItemTemplate>
+                </asp:Repeater>
+                      </table>
+              </div>
+           </div>
+
           <div class ="row" style="margin-top: 15px;">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
               <asp:Button ID="Button1" CssClass="btn btn-secondary btn-sm" runat="server" Text="Previous" onClick ="Previous" style ="width:150px;"/>

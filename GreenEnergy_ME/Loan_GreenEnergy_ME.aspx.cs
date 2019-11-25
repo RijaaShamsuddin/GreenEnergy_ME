@@ -17,7 +17,7 @@ namespace GreenEnergy_ME
         dbAccess db = new dbAccess();
         Formats data = new Formats();
         DataSet ds,ds1;
-        DataTable dtm;
+        DataTable dtm,dtg;
 
         public int report = 0, dep_id, dep_id_rep;
         public string client_no,cpno,nat_bus;
@@ -57,6 +57,12 @@ namespace GreenEnergy_ME
             dtm = get.get_marketinfo(client_no, cpno);
             marketinfo.DataSource = dtm;
             marketinfo.DataBind();
+
+            get = new Models.ModelView();
+            dtg = new DataTable();
+            dtg = get.get_guaranteeinfo(client_no, cpno);
+            guaranteeinfo.DataSource = dtg;
+            guaranteeinfo.DataBind();
 
             if (ds.Tables[3].Rows[0]["Nature_of_Business"].ToString() != "-")
             {

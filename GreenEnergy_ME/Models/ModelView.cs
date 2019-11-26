@@ -201,5 +201,54 @@ namespace GreenEnergy_ME.Models
             }
 
         }
+
+        public DataTable get_checklist()
+        {
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "Select * from Checklist_master order by id ";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
+        }
+
+        public int Insert_checklist(string client_no, string cpno, int brwr_type, int master, int yes, int no, int na, ref string error_status)
+        {
+
+            int vstatus = 0;
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                this.db.Cmd.CommandText = "INSERT INTO Checklist_details (brwr_type,client_no , cpno,  master_id, Yes, No,  NA) "
+                   + " VALUES (" + brwr_type + " ,'" + client_no + "' , '" + cpno + "',  " + master + " , " + yes + ", " + no + ", " + na + ")";
+                vstatus = this.db.cmd.ExecuteNonQuery();
+                this.db.Cn.Close();
+
+                return vstatus;
+
+            }
+            catch (Exception exception)
+            {
+                return vstatus = 0;
+                throw exception;
+            }
+
+        }
     }
 }

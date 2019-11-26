@@ -112,30 +112,61 @@
      <div class ="row" style="margin-top: 15px">
          <div style="width:80%;margin:auto;">
             <asp:Label ID="lblmsg" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
-             <table id="Table11" class="Table" style="width: 100%;">
-                <tr>
-                    <td  class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td>
-                    <td  class="row_heading"></td>
-                    <td  class="row_heading"></td>
-                    <td  class="row_heading"></td>
-                </tr>
-                <tr><td class="td" colspan="1">Attested copy of CNIC</td>
-                    <td >
-                        <asp:RadioButton ID="cnic_y" Text="YES" GroupName="cnic" runat="server" />
-                    </td>
-                    <td >
-                        <asp:RadioButton ID="cnic_n" Text="NO" GroupName="cnic" runat="server" />
-                    </td>
-                    <td >
-                        <asp:RadioButton ID="cnic_na" Text="N/A" GroupName="cnic" runat="server" />
-                    </td>
-                   </tr>
-            </table>
+             <table id="Table5" class="Table" style="width: 100%;">
+                <%--<tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>--%>
+                  <asp:GridView ID="Check_list" Width="100%" runat="server" AutoGenerateColumns="False" ShowFooter="True">
+            <Columns>
+                <asp:TemplateField HeaderText="Check List of Supporting Documents - For Medium Enterprises"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid"/>
+                    <ItemTemplate>
+                        <asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>
+                        <asp:Label ID="lbllist" runat="server" Text='<%# Eval("list") %>'></asp:Label>
+                            <td>
+                                <asp:RadioButton ID="Yes" Text="YES" GroupName="group" runat="server" />
+                            </td>
+                            <td >
+                                <asp:RadioButton ID="No" Text="NO" GroupName="group" runat="server" />
+                            </td>
+                            <td >
+                                <asp:RadioButton ID="NA" Text="N/A" GroupName="group" runat="server" />
+                            </td>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                </Columns>
+            <FooterStyle CssClass="Footer1" ></FooterStyle>
+        </asp:GridView>
+        </table>
+        </div>
+             <%--<asp:Repeater ID="Check_list" runat="server" OnItemCommand="Repeater_ItemCommand">
+                <HeaderTemplate>
+                     <table id="Table11" class="Table" style="width: 100%;">
+                        <tr>
+                            <td  class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td>
+                            <td  class="row_heading"></td>
+                            <td  class="row_heading"></td>
+                            <td  class="row_heading"></td>
+                        </tr>
+                 </HeaderTemplate>
+                    <ItemTemplate> 
+                        <table id="Table11" class="Table" style="width: 100%;">
+                        <tr><td class="td" colspan="1"><%# Eval("list") %></td>
+                            <td >
+                                <asp:RadioButton ID="cnic_y" Text="YES" GroupName="cnic" runat="server" />
+                            </td>
+                            <td >
+                                <asp:RadioButton ID="cnic_n" Text="NO" GroupName="cnic" runat="server" />
+                            </td>
+                            <td >
+                                <asp:RadioButton ID="cnic_na" Text="N/A" GroupName="cnic" runat="server" />
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+             </asp:Repeater>--%>
 
              <asp:HiddenField ID="hdfbrwr_type" runat="server" Visible="False" />
      <%--<div class ="row" style="margin-top: 15px;">--%>
           <div class="text-center" style="margin-top: 15px;">
-            <asp:Button ID="btnsavedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" style ="width:150px"/>              
+            <asp:Button ID="btnsavedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnsavedata_Click" style ="width:150px"/>              
             <%--</div>--%>
             </div>
           <br />

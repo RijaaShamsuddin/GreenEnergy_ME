@@ -49,31 +49,13 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.WebControls.Label lblmsg;
         
         /// <summary>
-        /// cnic_y control.
+        /// Check_list control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton cnic_y;
-        
-        /// <summary>
-        /// cnic_n control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton cnic_n;
-        
-        /// <summary>
-        /// cnic_na control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton cnic_na;
+        protected global::System.Web.UI.WebControls.GridView Check_list;
         
         /// <summary>
         /// hdfbrwr_type control.

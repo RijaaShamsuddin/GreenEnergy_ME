@@ -385,7 +385,7 @@
               <div class="col-lg-12 col-md-12 col-sm-12">
                   <table id="Table13" class="Table" style="width: 100%;">
                 <tr><td colspan="12" class="row_heading">Market Information</td></tr>
-            <asp:Repeater ID="Repeater1" runat="server">
+            <asp:Repeater ID="guaranteeinfo" runat="server">
                <HeaderTemplate>
                    <tr><td class="td"   rowspan ="2">Suppliers</td>
                        <td class="td"  >Name</td>

@@ -209,7 +209,7 @@ namespace GreenEnergy_ME.Models
                 this.db.Cn.Open();
                 this.db.Cmd.CommandType = CommandType.Text;
                 this.db.Cmd.CommandTimeout = 0;
-                string st = "Select * from Checklist_master order by id ";
+                string st = "select * from Checklist_master where brwr_type like '%3%' order by asc";
                 this.db.Cmd.CommandText = st;
                 this.db.Da.SelectCommand = this.db.Cmd;
                 DataTable dt = new DataTable();

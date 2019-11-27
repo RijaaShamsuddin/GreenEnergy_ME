@@ -16,7 +16,7 @@ namespace GreenEnergy_ME
         Models.ModelView get;
         dbAccess db = new dbAccess();
         Formats data = new Formats();
-        DataSet ds,ds1;
+        DataSet ds,ds1,ds2;
         DataTable dtm,dtg;
 
         public int report = 0, dep_id, dep_id_rep;
@@ -58,11 +58,15 @@ namespace GreenEnergy_ME
             marketinfo.DataSource = dtm;
             marketinfo.DataBind();
 
+            Financial();
+            Repeater1.DataSource = ds2.Tables[0];
+            Repeater1.DataBind();
+
             get = new Models.ModelView();
             dtg = new DataTable();
             dtg = get.get_guaranteeinfo(client_no, cpno);
-            guaranteeinfo.DataSource = dtg;
-            guaranteeinfo.DataBind();
+            guarantee.DataSource = dtg;
+            guarantee.DataBind();
 
             if (ds.Tables[3].Rows[0]["Nature_of_Business"].ToString() != "-")
             {
@@ -99,6 +103,11 @@ namespace GreenEnergy_ME
                 throw exception;
             }
             return ds1;
+        }
+
+        protected void Financial()
+        {
+            ds2 = data.getCustomer_StaticData(client_no, cpno, 22, dep_id_rep);
         }
 
         protected void GridView1_DataBound(object sender, EventArgs e)
@@ -163,7 +172,7 @@ namespace GreenEnergy_ME
                 tcnFF.Text = Convert.ToDouble(ds.Tables[2].Compute("sum(proposedlimit)", "facility_cat='Funded'")).ToString();
                 TableCell tc1 = new TableCell();
                 tc1.Text = "";
-                tc1.ColumnSpan = 2;
+                tc1.ColumnSpan = 3;
                 GridViewRow gr = new GridViewRow(-1, -1, DataControlRowType.DataRow, DataControlRowState.Normal);
                 gr.CssClass = "Footer1";
                 gr.Cells.Add(tc);
@@ -184,7 +193,7 @@ namespace GreenEnergy_ME
                 tcFF.Text = Convert.ToDouble(ds.Tables[2].Compute("sum(proposedlimit)", "facility_cat='Non-Funded'")).ToString();
                 TableCell tc4 = new TableCell();
                 tc4.Text = "";
-                tc4.ColumnSpan = 2;
+                tc4.ColumnSpan = 3;
                 GridViewRow gr2 = new GridViewRow(-1, -1, DataControlRowType.DataRow, DataControlRowState.Normal);
                 gr2.CssClass = "Footer1";
                 gr2.Cells.Add(tc3);

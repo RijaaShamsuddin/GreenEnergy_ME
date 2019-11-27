@@ -79,9 +79,30 @@ namespace GreenEnergy_ME
                             int rbn = Convert.ToInt32(rbno.Checked);
                             int rbna = Convert.ToInt32(rbnot.Checked);
                             vstatus = obj_cond.Insert_checklist(client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), master, rby, rbn, rbna, ref error_status);
-
+                            
                         }
                     }
+                    else
+                    {
+                        //throw new Exception(error_status);
+                        lblerror.Visible = true;
+                        lblerror.Text = "Select All checkboxes";
+                        lblerror.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+
+                if (vstatus == 1)
+                {
+                    lblmsg.Visible = true;
+                    lblmsg.Text = "Record Inserted Succesfully";
+                    lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
+                }
+                else
+                {
+                    //throw new Exception(error_status);
+                    lblerror.Visible = true;
+                    lblerror.Text = "Select All checkboxes";
+                    lblerror.ForeColor = System.Drawing.Color.Red;
                 }
             }
 

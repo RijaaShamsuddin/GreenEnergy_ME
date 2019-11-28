@@ -4,20 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Data;
 using System.IO;
 using CIIRSUtility;
 
 namespace GreenEnergy_ME
 {
-    public partial class CheckList : System.Web.UI.Page
+    public partial class CheckList_Update : System.Web.UI.Page
     {
         Models.ModelView get, brwr, obj_cond;
         //DataTable Cond_Table;
         public int report = 0, dep_id, dep_id_rep;
         public string client_no, cpno, nat_bus;
-        DataTable dt,dtc;
+        DataTable dt, dtc;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,21 +28,21 @@ namespace GreenEnergy_ME
                 client_no = "21116";
                 cpno = "109447";
 
-            if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
-            {
-                dep_id_rep = 1;
-            }
-            else
-            {
-                dep_id_rep = 0;
-            }
+                if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
+                {
+                    dep_id_rep = 1;
+                }
+                else
+                {
+                    dep_id_rep = 0;
+                }
 
-            brwr = new Models.ModelView();
-            dt = new DataTable();
-            dt = brwr.get_brwrtype(client_no);
-            hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
+                brwr = new Models.ModelView();
+                dt = new DataTable();
+                dt = brwr.get_brwrtype(client_no);
+                hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
 
-           
+
                 get = new Models.ModelView();
                 dtc = new DataTable();
                 dtc = get.get_checklist_SME();
@@ -72,7 +71,7 @@ namespace GreenEnergy_ME
                 gvTable.Controls.Add(gr);
             }
         }
-        protected void btnsavedata_Click(object sender, EventArgs e)
+        protected void btnupdatedata_Click(object sender, EventArgs e)
         {
             int vstatus = 0;
             string error_status = "";
@@ -127,10 +126,6 @@ namespace GreenEnergy_ME
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + ex.Message.ToString() + "')", true);
             }
         }
-            
-        protected void Repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
 
-        }
     }
 }

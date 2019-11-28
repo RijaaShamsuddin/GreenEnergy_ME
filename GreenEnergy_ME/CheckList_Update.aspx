@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckList.aspx.cs" Inherits="GreenEnergy_ME.CheckList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckList_Update.aspx.cs" Inherits="GreenEnergy_ME.CheckList_Update" %>
 
 <!DOCTYPE html>
 
@@ -138,7 +138,7 @@
 
              <asp:HiddenField ID="hdfbrwr_type" runat="server" Visible="False" />
           <div class="text-center" style="margin-top: 15px;">
-            <asp:Button ID="btnsavedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnsavedata_Click" style ="width:150px"/>              
+            <asp:Button ID="btnupdatedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnupdatedata_Click" style ="width:150px"/>              
             </div>
          <asp:Label ID="lblmsg" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
          <asp:Label ID="lblerror" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
@@ -162,3 +162,4 @@
    
 </body>
 </html>
+

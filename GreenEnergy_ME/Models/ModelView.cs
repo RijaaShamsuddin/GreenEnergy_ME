@@ -202,7 +202,7 @@ namespace GreenEnergy_ME.Models
 
         }
 
-        public DataTable get_checklist()
+        public DataTable get_checklist_SME()
         {
             try
             {
@@ -246,6 +246,34 @@ namespace GreenEnergy_ME.Models
             catch (Exception exception)
             {
                 return vstatus = 0;
+                throw exception;
+            }
+
+        }
+
+        public DataTable show_checklist(string client_no, string cpno)
+        {
+
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "select cd.brwr_type,client_no,cpno,Yes,No,NA,list from Checklist_details cd "
+                          + "inner join Checklist_master cm on cm.Id = cd.master_id "
+                          + "where cd.cpno = '" + cpno + "' and cd.client_no = '" + client_no + "' ";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
                 throw exception;
             }
 

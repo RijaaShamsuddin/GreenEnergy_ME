@@ -95,10 +95,10 @@
                                     <th colspan="12" class="headings">GREEN ENERGY ME</th>
                                 </tr>
                                 <tr>
-                                    <td rowspan="2" colspan="3" class="row_heading">1. Business Status:</td>
+                                    <td rowspan="2" colspan="3" class="row_heading headings">1. Business Status:</td>
                                     <td rowspan="2">
                                         <label><%# Eval("legstatus") %>&nbsp;</label></td>
-                                    <td rowspan="2" colspan="3" class="row_heading">2. Business Nature:</td>
+                                    <td rowspan="2" colspan="3" class="row_heading headings">2. Business Nature:</td>
                                     <td>
                                         <label><%# Eval("nat_business") %>&nbsp;</label></td>
                                 </tr>

@@ -113,10 +113,10 @@
          <div style="width:80%;margin:auto;">
             
              <table id="Table5" class="Table" style="width: 100%;">
-                <tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>
+                <%--<tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>--%>
                   <asp:GridView ID="Check_list" Width="100%" runat="server" AutoGenerateColumns="False" OnRowDataBound="Check_list_RowDataBound">
             <Columns>
-                <asp:TemplateField HeaderText="Check List of Supporting Documents - For Medium Enterprises"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid" Width="100%"/>
+                <asp:TemplateField HeaderText="Check List of Supporting Documents - For Medium Enterprises"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid" />
                     <ItemTemplate>
                         <asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>
                         <asp:Label ID="lbllist" runat="server" Text='<%# Eval("list") %>'></asp:Label>

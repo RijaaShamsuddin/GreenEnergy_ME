@@ -86,6 +86,11 @@
       <div class="container-fluid" id="container">
           <img src="img/image002_new.jpg" alt="www.bankalfalah.com"  style="width: 136px; height: 25px"/>
             <br />
+          <br />
+          <div class="whitespace">
+              <h6>I/We Hereby apply to avail financing (new/rollover/enhancement) at your branch. Our particulars are provided as below:</h6>
+          </div>
+          <br />
                 <asp:Repeater ID="Repeater" runat="server" OnItemCommand="Repeater_ItemCommand">
                 <ItemTemplate>
                     <div class="row">
@@ -210,41 +215,41 @@
                 <tr><td colspan="12" class="row_heading headings">5. Owners/Partners/Directors Details</td></tr>
             <asp:Repeater ID="dir_details" runat="server">
                <HeaderTemplate>
-                   <tr><td class="td" colspan="1">Name</td>
-                       <td class="td" colspan="1">Address</td>
-                       <td class="td" colspan="1">Contact Details</td>
-                       <td class="td" colspan="1">CNIC No</td>
-                       <td class="td" colspan="1">Status in Business</td>
-                       <td class="td" colspan="1">Shareholding (%)</td>
+                   <tr><td class="td" colspan="2">Name</td>
+                       <td class="td" colspan="2">Address</td>
+                       <td class="td" colspan="2">Contact Details</td>
+                       <td class="td" colspan="2">CNIC No</td>
+                       <td class="td" colspan="2">Status in Business</td>
+                       <td class="td" colspan="2">Shareholding (%)</td>
                    </tr>
                </HeaderTemplate>
                <ItemTemplate> 
                    <tr>  
-                       <td colspan="1" class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("Director") %>&nbsp;</label></td>
-                       <td colspan="1" class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("Address") %>&nbsp;</label></td>
-                       <td>
+                       <td colspan="2">
                        <table style="border-collapse: collapse; border: none;">
                         <tr style="border: none;">
-                            <td style="border: none;" colspan="1">Cell No:</td>
-                            <td style="border: none;" colspan="1"><%# Eval("cell_no") %></td>
+                            <td style="border: none;" colspan="2">Cell No:</td>
+                            <td style="border: none;" colspan="2"><%# Eval("cell_no") %></td>
                         </tr>
                         <tr style="border: none;">
-                            <td style="border: none;" colspan="1">Tell No:</td>
-                            <td style="border: none;" colspan="1"><%# Eval("tel_no") %></td>
+                            <td style="border: none;" colspan="2">Tell No:</td>
+                            <td style="border: none;" colspan="2"><%# Eval("tel_no") %></td>
                         </tr>
                         <tr style="border: none;">
-                            <td style="border: none;" colspan="1">Email:</td>
-                            <td style="border: none;" colspan="1"><%# Eval("email") %></td>
+                            <td style="border: none;" colspan="2">Email:</td>
+                            <td style="border: none;" colspan="2"><%# Eval("email") %></td>
                         </tr>
                        </table>
                            </td>
-                       <td colspan="1" class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("NIC") %>&nbsp;</label></td>
-                       <td colspan="1" class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("Director_Type") %>&nbsp;</label></td>
-                       <td colspan="1" class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("Share") %>&nbsp;</label></td>
 
                    </tr>
@@ -330,19 +335,19 @@
                 <tr><td colspan="12" class="row_heading headings">7. Market Information</td></tr>
             <asp:Repeater ID="marketinfo" runat="server">
                <HeaderTemplate>
-                   <tr><td class="td"   rowspan ="2">Suppliers</td>
-                       <td class="td"  >Name</td>
-                       <td class="td"  >Terms of Trade (Cash or Credit Based)</td>
-                       <td class="td"   rowspan ="2">Customers</td>
-                       <td class="td"  >Name</td>
-                       <td class="td"  >Terms of Trade (Cash or Credit Based)</td>
+                   <tr><td class="td" colspan="2" rowspan ="2">Suppliers</td>
+                       <td class="td" colspan="2" >Name</td>
+                       <td class="td" colspan="2" >Terms of Trade (Cash or Credit Based)</td>
+                       <td class="td" colspan="2"  rowspan ="2">Customers</td>
+                       <td class="td" colspan="2" >Name</td>
+                       <td class="td" colspan="2" >Terms of Trade (Cash or Credit Based)</td>
                    </tr>
                </HeaderTemplate>
                <ItemTemplate> 
                    <tr>  
-                       <td   class="whitespace">
+                       <td colspan="2"  class="whitespace">
                        <label><%# Eval("supp_name") %>&nbsp;</label></td>
-                       <td>
+                       <td colspan="2">
                        <table style="border-collapse: collapse; border: none;">
                         <tr style="border: none;">
                             <td style="border: none;"  >Cash(%):</td>
@@ -358,9 +363,9 @@
                         </tr>
                        </table>
                            </td>
-                       <td   class="whitespace">
+                       <td  colspan="2" class="whitespace">
                        <label><%# Eval("cust_name") %>&nbsp;</label></td>
-                       <td>
+                       <td colspan="2">
                        <table style="border-collapse: collapse; border: none;">
                         <tr style="border: none;">
                             <td style="border: none;"  >Cash(%):</td>
@@ -392,24 +397,24 @@
                 <tr><td colspan="12" class="row_heading headings">8. Detail of Guarantees provided by the Directors/Partners to Financial institutions to Secure Credit</td></tr>
             <asp:Repeater ID="guarantee" runat="server">
                <HeaderTemplate>
-                   <tr><td class="td" >Name of Guarantor(s)</td>
-                       <td class="td" >To whom Guarantee Given</td>
-                       <td class="td" >Amount of Guarantee</td>
-                       <td class="td" >Validity Period</td>
-                       <td class="td" >Net Worth of Guarantor</td>
+                   <tr><td class="td" colspan="3">Name of Guarantor(s)</td>
+                       <td class="td" colspan="3">To whom Guarantee Given</td>
+                       <td class="td" colspan="2">Amount of Guarantee</td>
+                       <td class="td" colspan="2">Validity Period</td>
+                       <td class="td" colspan="2">Net Worth of Guarantor</td>
                    </tr>
                </HeaderTemplate>
                <ItemTemplate> 
                    <tr>  
-                       <td  class="whitespace">
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("guarantor_name") %>&nbsp;</label></td>
-                       <td  class="whitespace">
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("guarantee_given") %>&nbsp;</label></td>
-                       <td  class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("amt_guarantee") %>&nbsp;</label></td>
-                       <td  class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("validity_period") %>&nbsp;</label></td>
-                       <td  class="whitespace">
+                       <td colspan="2" class="whitespace">
                        <label><%# Eval("networth_guarantor") %>&nbsp;</label></td>
                    </tr>
                </ItemTemplate>
@@ -427,60 +432,60 @@
             <asp:Repeater ID="Repeater1" runat="server">
                 <HeaderTemplate>
                     <tr>
-                        <td class="td row_heading">Particulars</td>
-                        <td class="td row_heading">Amount in Rs.</td>
-                        <td class="td row_heading">Particulars</td>
-                        <td class="td row_heading">Amount in Rs.</td>
+                        <td class="td row_heading" colspan="3">Particulars</td>
+                        <td class="td row_heading" colspan="3">Amount in Rs.</td>
+                        <td class="td row_heading" colspan="3">Particulars</td>
+                        <td class="td row_heading" colspan="3">Amount in Rs.</td>
                     </tr>
                 </HeaderTemplate>
                <ItemTemplate>
-                   <tr><td class="td" >Cash in Hand</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Cash in Hand</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Cash_Bank_Balances") %>&nbsp;</label></td>
-                       <td class="td" >Current Liabilities</td>
-                       <td  class="whitespace">
+                       <td colspan="3" class="td" >Current Liabilities</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Total_Curr_Liabilities") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Cash at Bank</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Cash at Bank</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Cash_Bank_Balances") %>&nbsp;</label></td>
-                       <td class="td" >Borrowings</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Borrowings</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("DTER") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Inventory value</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Inventory value</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Inventory") %>&nbsp;</label></td>
-                       <td class="td" >Total Liabilities</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Total Liabilities</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Total_Liab") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Investments</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3" >Investments</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Investments") %>&nbsp;</label></td>
-                       <td class="td" >Total Equity</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Total Equity</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Total_Equity") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Fixed Investments</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Fixed Investments</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Fixed_Investments") %>&nbsp;</label></td>
-                       <td class="td" >Gross Revenue</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Gross Revenue</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Gross_Profit") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Current Assets</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Current Assets</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Total_Curr_Asset") %>&nbsp;</label></td>
-                       <td class="td" >Total Expenses</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Total Expenses</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("DTER") %>&nbsp;</label></td>
                    </tr>
-                   <tr><td class="td" >Total Assets</td>
-                       <td  class="whitespace">
+                   <tr><td class="td" colspan="3">Total Assets</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Total_Assets") %>&nbsp;</label></td>
-                       <td class="td" >Profit after tax</td>
-                       <td  class="whitespace">
+                       <td class="td" colspan="3">Profit after tax</td>
+                       <td colspan="3" class="whitespace">
                        <label><%# Eval("Profit_atax") %>&nbsp;</label></td>
                    </tr>
                    </tr>
@@ -501,7 +506,7 @@
                            10. Net Metering Required</td></tr>
                       <tr>
                           <td colspan="12" class="whitespace">
-                              Yes / No
+                             <%=metering%>
                           </td>
                       </tr>
                     </table>

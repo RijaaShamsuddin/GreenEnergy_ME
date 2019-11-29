@@ -76,6 +76,10 @@
         .headings {
             font-size: large;
         }
+        .hr {
+            border-top: 2px solid black;
+            margin-right: 15px;
+        }
 
     </style>
 </head>
@@ -115,6 +119,15 @@
                </table>
               </div>
            </div>
+
+          <div class ="row" style="margin-top: 25px;">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                  <hr align="right" width="20%" class="hr">
+                  <h6 style="margin-right:15px">
+                      BORROWER'S SIGNATURE & STAMP
+                  </h6>
+              </div>
+          </div>
 
           <div class ="row" style="margin-top: 15px;">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">

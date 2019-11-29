@@ -20,7 +20,7 @@ namespace GreenEnergy_ME
         DataTable dtm,dtg;
 
         public int report = 0, dep_id, dep_id_rep;
-        public string client_no,cpno,nat_bus;
+        public string client_no,cpno,nat_bus,metering;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,6 +75,14 @@ namespace GreenEnergy_ME
             }
             else
                 Table.Visible =  false;
+
+            if (ds.Tables[0].Rows[0]["metering"].ToString() != "-")
+            {
+                metering = ds.Tables[0].Rows[0]["metering"].ToString();
+                Table.Visible = true;
+            }
+            else
+                Table.Visible = false;
         }
 
         protected void Bussines_Details()
@@ -206,13 +214,10 @@ namespace GreenEnergy_ME
             }
         }
 
-        protected void Previous(object sender, EventArgs e)
-        {
-            Response.Redirect("Page2_corp.aspx");
-        }
+       
         protected void Next(object sender, EventArgs e)
         {
-            Response.Redirect("Summary_corp.aspx");
+            Response.Redirect("Loan_GreenEnergy_ME_Page2.aspx");
         }
 
         protected void Repeater_ItemCommand(object source, RepeaterCommandEventArgs e)

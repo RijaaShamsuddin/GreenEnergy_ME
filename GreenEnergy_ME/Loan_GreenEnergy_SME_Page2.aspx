@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Loan_GreenEnergy_ME_Page2.aspx.cs" Inherits="GreenEnergy_ME.Loan_GreenEnergy_ME_Page2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Loan_GreenEnergy_SME_Page2.aspx.cs" Inherits="GreenEnergy_ME.Loan_GreenEnergy_SME_Page2" %>
 
 <!DOCTYPE html>
 
@@ -128,7 +128,7 @@
                   </h6>
               </div>
           </div>
-
+          <asp:HiddenField ID="hdfbrwr_type" runat="server" Visible="False" />
           <div class ="row" style="margin-top: 15px;">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
               <asp:Button ID="Button1" CssClass="btn btn-secondary btn-sm" runat="server" Text="Previous" onClick ="Previous" style ="width:150px;"/>

@@ -200,9 +200,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Loan_GreenEenergy_Ind_Page2.aspx" />
+    <Content Include="Loan_GreenEnergy_Ind.aspx" />
     <Content Include="Loan_GreenEnergy_ME.aspx" />
     <Content Include="Add_Market_Info.aspx" />
-    <Content Include="Loan_GreenEnergy_ME_Page2.aspx" />
+    <Content Include="Loan_GreenEnergy_SE.aspx" />
+    <Content Include="Loan_GreenEnergy_SME_Page2.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -431,6 +434,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Loan_GreenEenergy_Ind_Page2.aspx.cs">
+      <DependentUpon>Loan_GreenEenergy_Ind_Page2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loan_GreenEenergy_Ind_Page2.aspx.designer.cs">
+      <DependentUpon>Loan_GreenEenergy_Ind_Page2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loan_GreenEnergy_Ind.aspx.cs">
+      <DependentUpon>Loan_GreenEnergy_Ind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loan_GreenEnergy_Ind.aspx.designer.cs">
+      <DependentUpon>Loan_GreenEnergy_Ind.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Loan_GreenEnergy_ME.aspx.cs">
       <DependentUpon>Loan_GreenEnergy_ME.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -445,12 +462,19 @@
     <Compile Include="Add_Market_Info.aspx.designer.cs">
       <DependentUpon>Add_Market_Info.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Loan_GreenEnergy_ME_Page2.aspx.cs">
-      <DependentUpon>Loan_GreenEnergy_ME_Page2.aspx</DependentUpon>
+    <Compile Include="Loan_GreenEnergy_SE.aspx.cs">
+      <DependentUpon>Loan_GreenEnergy_SE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Loan_GreenEnergy_ME_Page2.aspx.designer.cs">
-      <DependentUpon>Loan_GreenEnergy_ME_Page2.aspx</DependentUpon>
+    <Compile Include="Loan_GreenEnergy_SE.aspx.designer.cs">
+      <DependentUpon>Loan_GreenEnergy_SE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loan_GreenEnergy_SME_Page2.aspx.cs">
+      <DependentUpon>Loan_GreenEnergy_SME_Page2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loan_GreenEnergy_SME_Page2.aspx.designer.cs">
+      <DependentUpon>Loan_GreenEnergy_SME_Page2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ModelView.cs" />

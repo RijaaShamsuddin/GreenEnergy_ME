@@ -17,7 +17,7 @@ namespace GreenEnergy_ME
         //DataTable Cond_Table;
         public int report = 0, dep_id, dep_id_rep;
         public string client_no, cpno, nat_bus;
-        DataTable dt,dtc;
+        DataTable dt,dtc, dtci;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,6 +49,16 @@ namespace GreenEnergy_ME
                 dtc = get.get_checklist_SME();
                 Check_list.DataSource = dtc;
                 Check_list.DataBind();
+
+            if (hdfbrwr_type.Value = 4)
+
+                {
+                    get = new Models.ModelView();
+                    dtci = new DataTable();
+                    dtci = get.get_checklist_Ind();
+                    Check_list.DataSource = dtci;
+                    Check_list.DataBind();
+                }
             }
         }
 
@@ -92,6 +102,8 @@ namespace GreenEnergy_ME
 
                     if (rbyes.Checked == true || rbNo.Checked == true || rbNA.Checked == true)
                     {
+                        //client_no = Request["client_no"];
+                        //cpno = Request["cpno"];
                         client_no = "21116";
                         cpno = "109447";
                         Label lbl = (Label)row.FindControl("lblmasterid");

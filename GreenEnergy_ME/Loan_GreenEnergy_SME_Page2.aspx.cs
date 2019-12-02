@@ -6,31 +6,29 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
-using System.IO;
 using CIIRSUtility;
 
 namespace GreenEnergy_ME
 {
-    public partial class Loan_GreenEnergy_ME_Page2 : System.Web.UI.Page
+    public partial class Loan_GreenEnergy_SME_Page2 : System.Web.UI.Page
     {
-        Models.ModelView get;
+        Models.ModelView get, brwr;
         dbAccess db = new dbAccess();
         Formats data = new Formats();
         DataSet ds, ds1, ds2;
-        DataTable dtc, dtg;
+        DataTable dt, dtc, dtg;
 
         public int report = 0, dep_id, dep_id_rep;
         public string client_no, cpno, nat_bus;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             //client_no = Request["client_no"];
             //cpno = Request["cpno"];
             //dep_id = Convert.ToInt32(Request["dep_id"]);
 
-            client_no = "21116";
-            cpno = "109447";
+            client_no = "55855";
+            cpno = "99322";
 
             if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
             {
@@ -41,15 +39,21 @@ namespace GreenEnergy_ME
                 dep_id_rep = 0;
             }
 
+            brwr = new Models.ModelView();
+            dt = new DataTable();
+            dt = brwr.get_brwrtype(client_no);
+            hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
+
             if (!IsPostBack)
             {
-                get = new Models.ModelView();
-            dtc = new DataTable();
-            Show_Checklist();
-            GridView1.DataSource = dtc;
-            GridView1.DataBind();
+                    get = new Models.ModelView();
+                    dtc = new DataTable();
+                    Show_Checklist();
+                    GridView1.DataSource = dtc;
+                    GridView1.DataBind();
+
             }
-            
+
 
         }
 
@@ -99,7 +103,7 @@ namespace GreenEnergy_ME
                 }
             }
 
-            if(e.Row.RowType == DataControlRowType.Footer)
+            if (e.Row.RowType == DataControlRowType.Footer)
             {
                 e.Row.Cells[0].Text = "insurance";
                 e.Row.Cells[0].ColumnSpan = 2;
@@ -107,11 +111,11 @@ namespace GreenEnergy_ME
                 TableCell tc = new TableCell();
                 tc.Text = "* insurance will be advance for one year and then it will be part of the monthly / quartely instalment";
                 tc.ColumnSpan = 5;
-                
+
                 GridViewRow gr = new GridViewRow(-1, -1, DataControlRowType.DataRow, DataControlRowState.Normal);
-                
+
                 gr.Cells.Add(tc);
-                
+
 
                 Table gvTable = (Table)e.Row.Parent;
                 gvTable.Controls.Add(gr);

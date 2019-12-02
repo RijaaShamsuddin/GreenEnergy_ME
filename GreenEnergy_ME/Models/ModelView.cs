@@ -278,5 +278,31 @@ namespace GreenEnergy_ME.Models
             }
 
         }
+
+        public DataTable get_checklist_Ind(string client_no, string cpno)
+        {
+
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "select * from Checklist_master where brwr_type like '%4%' order by id asc";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
+
+        }
     }
 }

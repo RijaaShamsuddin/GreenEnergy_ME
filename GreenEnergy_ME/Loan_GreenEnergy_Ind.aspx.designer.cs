@@ -10,7 +10,7 @@
 namespace GreenEnergy_ME {
     
     
-    public partial class Loan_GreenEnergy_ME_Page2 {
+    public partial class Loan_GreenEnergy_Ind {
         
         /// <summary>
         /// Table control.
@@ -40,6 +40,24 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// dir_details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater dir_details;
+        
+        /// <summary>
+        /// Repeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -49,12 +67,12 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Button1 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

@@ -26,8 +26,8 @@ namespace GreenEnergy_ME
             //dep_id = Convert.ToInt32(Request["dep_id"]);
             if (!IsPostBack)
             {
-                client_no = "21116";
-                cpno = "109447";
+                client_no = "9742";
+                cpno = "123456";
 
             if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
             {
@@ -38,25 +38,27 @@ namespace GreenEnergy_ME
                 dep_id_rep = 0;
             }
 
-            brwr = new Models.ModelView();
-            dt = new DataTable();
-            dt = brwr.get_brwrtype(client_no);
-            hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
+                brwr = new Models.ModelView();
+                dt = new DataTable();
+                dt = brwr.get_brwrtype(client_no);
+                hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
+                int brwr_value = Convert.ToInt32(hdfbrwr_type.Value);
 
-           
-                get = new Models.ModelView();
-                dtc = new DataTable();
-                dtc = get.get_checklist_SME();
-                Check_list.DataSource = dtc;
-                Check_list.DataBind();
-
-            if (hdfbrwr_type.Value = 4)
+            if (brwr_value == 4)
 
                 {
                     get = new Models.ModelView();
                     dtci = new DataTable();
                     dtci = get.get_checklist_Ind();
                     Check_list.DataSource = dtci;
+                    Check_list.DataBind();
+                }
+            else
+                {
+                    get = new Models.ModelView();
+                    dtc = new DataTable();
+                    dtc = get.get_checklist_SME();
+                    Check_list.DataSource = dtc;
                     Check_list.DataBind();
                 }
             }
@@ -104,8 +106,8 @@ namespace GreenEnergy_ME
                     {
                         //client_no = Request["client_no"];
                         //cpno = Request["cpno"];
-                        client_no = "21116";
-                        cpno = "109447";
+                        client_no = "9742";
+                        cpno = "123456";
                         Label lbl = (Label)row.FindControl("lblmasterid");
                         int master = Convert.ToInt32(lbl.Text);
                         int rby = Convert.ToInt32(rbyes.Checked);

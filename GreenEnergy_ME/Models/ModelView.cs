@@ -279,7 +279,7 @@ namespace GreenEnergy_ME.Models
 
         }
 
-        public DataTable get_checklist_Ind(string client_no, string cpno)
+        public DataTable get_checklist_Ind()
         {
 
             try

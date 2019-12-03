@@ -118,7 +118,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Check List of Supporting Documents - For Medium Enterprises"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid" Width="100%"/>
                     <ItemTemplate>
-                        <asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>
+                        <%--<asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>--%>
                         <asp:Label ID="lbllist" runat="server" Text='<%# Eval("list") %>'></asp:Label>
                             <td>
                                 <asp:RadioButton ID="Yes" Text="YES" GroupName="group" runat="server" />

@@ -306,7 +306,7 @@ namespace GreenEnergy_ME.Models
         public int Update_checklist(int yes, int no, int na, string client_no, string cpno, int brwr_type, int master,  ref string error_status)
         {
             int vstatus = 0;
-            try
+            try 
             {
                 this.db.Cn.Open();
                 this.db.Cmd.CommandType = CommandType.Text;

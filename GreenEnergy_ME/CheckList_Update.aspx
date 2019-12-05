@@ -113,21 +113,21 @@
          <div style="width:80%;margin:auto;">
             
              <table id="Table5" class="Table" style="width: 100%;">
-                <tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>
+                <%--<tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>--%>
                   <asp:GridView ID="Check_list" Width="100%" runat="server" AutoGenerateColumns="False" OnRowDataBound="Check_list_RowDataBound">
             <Columns>
                 <asp:TemplateField HeaderText="Check List of Supporting Documents - For Medium Enterprises"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid" Width="100%"/>
                     <ItemTemplate>
-                        <%--<asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>--%>
                         <asp:Label ID="lbllist" runat="server" Text='<%# Eval("list") %>'></asp:Label>
+                        <asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("master_id") %>' Visible="false"></asp:Label>
                             <td>
-                                <asp:RadioButton ID="Yes" Text="YES" GroupName="group" runat="server" />
+                                <asp:RadioButton ID="rbyes" Text="Yes" GroupName="group" runat="server" />
                             </td>
                             <td >
-                                <asp:RadioButton ID="No" Text="NO" GroupName="group" runat="server" />
+                                <asp:RadioButton ID="rbno" Text="No"  GroupName="group" runat="server" />
                             </td>
                             <td >
-                                <asp:RadioButton ID="NA" Text="N/A" GroupName="group" runat="server" />
+                                <asp:RadioButton ID="rbna" Text="NA"  GroupName="group" runat="server" />
                             </td>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -138,7 +138,7 @@
 
              <asp:HiddenField ID="hdfbrwr_type" runat="server" Visible="False" />
           <div class="text-center" style="margin-top: 15px;">
-            <asp:Button ID="btnupdatedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnupdatedata_Click" style ="width:150px"/>              
+            <asp:Button ID="btnupdatedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Update" OnClick="btnupdatedata_Click" style ="width:150px"/>              
             </div>
          <asp:Label ID="lblmsg" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
          <asp:Label ID="lblerror" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>

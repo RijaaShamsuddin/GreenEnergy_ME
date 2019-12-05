@@ -16,7 +16,7 @@ namespace GreenEnergy_ME
         //DataTable Cond_Table;
         public int report = 0, dep_id, dep_id_rep;
         public string client_no, cpno, nat_bus;
-        DataTable dt, dtc, dtci;
+        DataTable dt, dt_checklist;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,26 +43,14 @@ namespace GreenEnergy_ME
                 hdfbrwr_type.Value = dt.Rows[0]["brwr_type"].ToString();
                 int brwr_value = Convert.ToInt32(hdfbrwr_type.Value);
 
-                if (brwr_value == 4)
-
-                {
                     get = new Models.ModelView();
-                    dtci = new DataTable();
-                    dtci = get.show_checklist(client_no,cpno);
-                    Check_list.DataSource = dtci;
-                    Check_list.DataBind();
-
-                }
-                else
-                {
-                    get = new Models.ModelView();
-                    dtc = new DataTable();
-                    dtc = get.get_checklist_SME();
-                    Check_list.DataSource = dtc;
+                    dt_checklist = new DataTable();
+                    dt_checklist = get.show_checklist(client_no,cpno);
+                    Check_list.DataSource = dt_checklist;
                     Check_list.DataBind();
                 }
             }
-        }
+        
 
         
         protected void btnupdatedata_Click(object sender, EventArgs e)
@@ -71,48 +59,51 @@ namespace GreenEnergy_ME
             string error_status = "";
             int vindex = 0;
             try
-            {
+            { 
                 obj_cond = new Models.ModelView();
                 foreach (GridViewRow row in Check_list.Rows)
                 {
-                    //RadioButton rbyes = (RadioButton)row.FindControl("Yes");
-                    //RadioButton rbno = (RadioButton)row.FindControl("No");
-                    //RadioButton rbnot = (RadioButton)row.FindControl("NA");
+                    //RadioButton rbyes = (RadioButton)Check_list.Rows[vindex].FindControl("Yes");
+                    //RadioButton rbNo = (RadioButton)Check_list.Rows[vindex].FindControl("No");
+                    //RadioButton rbNA = (RadioButton)Check_list.Rows[vindex].FindControl("NA");
 
-                    RadioButton rbyes = (RadioButton)Check_list.Rows[vindex].FindControl("Yes");
-                    RadioButton rbNo = (RadioButton)Check_list.Rows[vindex].FindControl("No");
-                    RadioButton rbNA = (RadioButton)Check_list.Rows[vindex].FindControl("NA");
+                    RadioButton rbyes = (RadioButton)row.FindControl("rbyes");
+                    RadioButton rbNo = (RadioButton)row.FindControl("rbno");
+                    RadioButton rbNA = (RadioButton)row.FindControl("rbna");
 
                     if (rbyes.Checked == true || rbNo.Checked == true || rbNA.Checked == true)
                     {
-                        client_no = "21116";
-                        cpno = "109447";
+                        //client_no = Request["client_no"];
+                        //cpno = Request["cpno"];
+                        client_no = "9742";
+                        cpno = "123456";
                         Label lbl = (Label)row.FindControl("lblmasterid");
                         int master = Convert.ToInt32(lbl.Text);
                         int rby = Convert.ToInt32(rbyes.Checked);
                         int rbn = Convert.ToInt32(rbNo.Checked);
                         int rbna = Convert.ToInt32(rbNA.Checked);
-                        vstatus = obj_cond.Insert_checklist(client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), master, rby, rbn, rbna, ref error_status);
+                        vstatus = obj_cond.Update_checklist(rby, rbn, rbna, client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), master, ref error_status);
 
-                        RadioButton rbnextyes = (RadioButton)Check_list.Rows[vindex + 1].FindControl("Yes");
-                        RadioButton rbnextNo = (RadioButton)Check_list.Rows[vindex + 1].FindControl("No");
-                        RadioButton rbnextNA = (RadioButton)Check_list.Rows[vindex + 1].FindControl("NA");
+                        //RadioButton rbnextyes = (RadioButton)Check_list.Rows[vindex + 1].FindControl("Yes");
+                        //RadioButton rbnextNo = (RadioButton)Check_list.Rows[vindex + 1].FindControl("No");
+                        //RadioButton rbnextNA = (RadioButton)Check_list.Rows[vindex + 1].FindControl("NA");
 
-                        if (rbnextyes.Checked == false && rbnextNo.Checked == false && rbnextNA.Checked == false)
+                        //if (rbnextyes.Checked == false && rbnextNo.Checked == false && rbnextNA.Checked == false)
+                         if (rbyes.Checked == false && rbNo.Checked == false && rbNA.Checked == false)
                         {
-                            //lblerror.Visible = true;
-                            //lblerror.Text = "Select All checkboxes";
-                            //lblerror.ForeColor = System.Drawing.Color.Red;
                             throw new Exception("Please Select All Checkboxes");
-
                         }
                         else
                         {
-                            vindex += 1;
+                            //vindex += 1;
+                            //throw new Exception("Record Inserted Succesfully");
+                            //lblmsg.Visible = true;
+                            //lblmsg.Text = "Record Inserted Succesfully";
+                            //lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
                         }
                     }
-
                 }
+                //throw new Exception("Record inserted suceesfully");
             }
 
             catch (Exception ex)
@@ -123,6 +114,36 @@ namespace GreenEnergy_ME
 
         protected void Check_list_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (dt_checklist.Rows.Count > 0 && dt_checklist != null)
+            {
+                string error_status = "";
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                   
+                    RadioButton rbyes = (RadioButton)e.Row.FindControl("rbyes");
+                    if ( Convert.ToInt32(dt_checklist.Rows[e.Row.RowIndex]["Yes"].ToString()) == 1)
+                    {
+                        rbyes.Checked = true;
+                    }
+
+                    RadioButton rbno = (RadioButton)e.Row.FindControl("rbno");
+                    if (Convert.ToInt32(dt_checklist.Rows[e.Row.RowIndex]["No"].ToString()) == 1)
+                    {
+                        rbno.Checked = true;
+                    }
+
+                    RadioButton rbna = (RadioButton)e.Row.FindControl("rbna");
+                    if (Convert.ToInt32(dt_checklist.Rows[e.Row.RowIndex]["NA"].ToString()) == 1)
+                    {
+                        rbna.Checked = true;
+                    }
+                }
+                else
+                {
+                    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + error_status.ToString() + "')", true);
+                }
+            }
+
             if (e.Row.RowType == DataControlRowType.Footer)
             {
                 e.Row.Cells[0].Text = "insurance";

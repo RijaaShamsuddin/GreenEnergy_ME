@@ -226,59 +226,6 @@ namespace GreenEnergy_ME.Models
             }
         }
 
-        public int Insert_checklist(string client_no, string cpno, int brwr_type, int master, int yes, int no, int na, ref string error_status)
-        {
-
-            int vstatus = 0;
-            try
-            {
-                this.db.Cn.Open();
-                this.db.Cmd.CommandType = CommandType.Text;
-                this.db.Cmd.CommandTimeout = 0;
-                this.db.Cmd.CommandText = "INSERT INTO Checklist_details (brwr_type,client_no , cpno,  master_id, Yes, No,  NA) "
-                   + " VALUES (" + brwr_type + " ,'" + client_no + "' , '" + cpno + "',  " + master + " , " + yes + ", " + no + ", " + na + ")";
-                vstatus = this.db.cmd.ExecuteNonQuery();
-                this.db.Cn.Close();
-
-                return vstatus;
-
-            }
-            catch (Exception exception)
-            {
-                return vstatus = 0;
-                throw exception;
-            }
-
-        }
-
-        public DataTable show_checklist(string client_no, string cpno)
-        {
-
-            try
-            {
-                this.db.Cn.Open();
-                this.db.Cmd.CommandType = CommandType.Text;
-                this.db.Cmd.CommandTimeout = 0;
-                string st = "select cd.brwr_type,client_no,cpno,Yes,No,NA,list from Checklist_details cd "
-                          + "inner join Checklist_master cm on cm.Id = cd.master_id "
-                          + "where cd.cpno = '" + cpno + "' and cd.client_no = '" + client_no + "' ";
-                this.db.Cmd.CommandText = st;
-                this.db.Da.SelectCommand = this.db.Cmd;
-                DataTable dt = new DataTable();
-                this.db.Da.Fill(dt);
-                this.db.Cn.Close();
-                st = "";
-                return dt;
-
-            }
-            catch (Exception exception)
-            {
-                //return dt = null;
-                throw exception;
-            }
-
-        }
-
         public DataTable get_checklist_Ind()
         {
 
@@ -304,5 +251,81 @@ namespace GreenEnergy_ME.Models
             }
 
         }
+
+        public int Insert_checklist(string client_no, string cpno, int brwr_type, int master, int yes, int no, int na, ref string error_status)
+        {
+            int vstatus = 0;
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                this.db.Cmd.CommandText = "INSERT INTO Checklist_details (brwr_type,client_no , cpno,  master_id, Yes, No,  NA) "
+                   + " VALUES (" + brwr_type + " ,'" + client_no + "' , '" + cpno + "',  " + master + " , " + yes + ", " + no + ", " + na + ")";
+                vstatus = this.db.cmd.ExecuteNonQuery();
+                this.db.Cn.Close();
+
+                return vstatus;
+
+            }
+            catch (Exception exception)
+            {
+                return vstatus = 0;
+                throw exception;
+            }
+
+        }
+
+        public DataTable show_checklist(string client_no, string cpno)
+        {
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "select cd.brwr_type,client_no,cpno,Yes,No,NA,cd.master_id,list from Checklist_details cd "
+                          + "inner join Checklist_master cm on cm.Id = cd.master_id "
+                          + "where cd.cpno = '" + cpno + "' and cd.client_no = '" + client_no + "' ";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
+
+        }
+
+        public int Update_checklist(int yes, int no, int na, string client_no, string cpno, int brwr_type, int master,  ref string error_status)
+        {
+            int vstatus = 0;
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                this.db.Cmd.CommandText = "UPDATE Checklist_details SET Yes =" + yes + ", No = " + no + ",  NA = " + na + " "
+                   + " where client_no = '" + client_no + "' and cpno = '" + cpno + "' and brwr_type = " + brwr_type + " and  master_id =" + master + " ";
+                vstatus = this.db.cmd.ExecuteNonQuery();
+                this.db.Cn.Close();
+
+                return vstatus;
+
+            }
+            catch (Exception exception)
+            {
+                return vstatus = 0;
+                throw exception;
+            }
+
+        }
+
     }
 }

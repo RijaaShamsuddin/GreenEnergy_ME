@@ -134,6 +134,8 @@ namespace GreenEnergy_ME
                     }
 
                 }
+
+                throw new Exception("Record inserted suceesfully");
             }
 
             catch (Exception ex)

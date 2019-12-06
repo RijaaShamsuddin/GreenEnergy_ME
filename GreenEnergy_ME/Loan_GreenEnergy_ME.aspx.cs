@@ -217,7 +217,7 @@ namespace GreenEnergy_ME
        
         protected void Next(object sender, EventArgs e)
         {
-            Response.Redirect("Loan_GreenEnergy_ME_Page2.aspx");
+            Response.Redirect("Loan_GreenEnergy_SME_Page2.aspx");
         }
 
         protected void Repeater_ItemCommand(object source, RepeaterCommandEventArgs e)

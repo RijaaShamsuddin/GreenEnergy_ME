@@ -335,16 +335,18 @@
                 <tr><td colspan="12" class="row_heading headings">7. Market Information</td></tr>
             <asp:Repeater ID="marketinfo" runat="server">
                <HeaderTemplate>
-                   <tr><td class="td" colspan="2" rowspan ="2">Suppliers</td>
+                   <tr>
+                       <td class="td" colspan="2" ></td>
                        <td class="td" colspan="2" >Name</td>
                        <td class="td" colspan="2" >Terms of Trade (Cash or Credit Based)</td>
-                       <td class="td" colspan="2"  rowspan ="2">Customers</td>
+                       <td class="td" colspan="2" ></td>
                        <td class="td" colspan="2" >Name</td>
                        <td class="td" colspan="2" >Terms of Trade (Cash or Credit Based)</td>
                    </tr>
                </HeaderTemplate>
                <ItemTemplate> 
-                   <tr>  
+                   <tr> 
+                       <td class="td" colspan="2" >Suppliers</td> 
                        <td colspan="2"  class="whitespace">
                        <label><%# Eval("supp_name") %>&nbsp;</label></td>
                        <td colspan="2">
@@ -363,6 +365,7 @@
                         </tr>
                        </table>
                            </td>
+                       <td class="td" colspan="2"  >Customers</td>
                        <td  colspan="2" class="whitespace">
                        <label><%# Eval("cust_name") %>&nbsp;</label></td>
                        <td colspan="2">

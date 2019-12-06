@@ -10,7 +10,7 @@
 namespace GreenEnergy_ME {
     
     
-    public partial class CheckList {
+    public partial class Main_MarketInfo {
         
         /// <summary>
         /// Table control.
@@ -40,24 +40,6 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Check_list control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Check_list;
-        
-        /// <summary>
-        /// hdfbrwr_type control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfbrwr_type;
-        
-        /// <summary>
         /// lblmsg control.
         /// </summary>
         /// <remarks>
@@ -67,21 +49,21 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.WebControls.Label lblmsg;
         
         /// <summary>
-        /// btnsavedata control.
+        /// marketinfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsavedata;
+        protected global::System.Web.UI.WebControls.Repeater marketinfo;
         
         /// <summary>
-        /// lblerror control.
+        /// hdfbrwr_type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblerror;
+        protected global::System.Web.UI.WebControls.HiddenField hdfbrwr_type;
     }
 }

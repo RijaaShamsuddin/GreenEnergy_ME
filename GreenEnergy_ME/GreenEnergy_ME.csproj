@@ -205,6 +205,7 @@
     <Content Include="Add_Market_Info.aspx" />
     <Content Include="Loan_GreenEnergy_SE.aspx" />
     <Content Include="Loan_GreenEnergy_SME_Page2.aspx" />
+    <Content Include="Main_MarketInfo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -467,6 +468,13 @@
     </Compile>
     <Compile Include="Loan_GreenEnergy_SME_Page2.aspx.designer.cs">
       <DependentUpon>Loan_GreenEnergy_SME_Page2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main_MarketInfo.aspx.cs">
+      <DependentUpon>Main_MarketInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main_MarketInfo.aspx.designer.cs">
+      <DependentUpon>Main_MarketInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ModelView.cs" />

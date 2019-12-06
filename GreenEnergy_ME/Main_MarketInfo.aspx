@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CheckList.aspx.cs" Inherits="GreenEnergy_ME.CheckList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Main_MarketInfo.aspx.cs" Inherits="GreenEnergy_ME.Main_MarketInfo" %>
 
 <!DOCTYPE html>
 
@@ -15,10 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!--<link rel="stylesheet"  href="Styles/ScorecardTables.css" id="Table" runat="server" type="text/css" />-->
     <link rel="stylesheet" href="Styles/Table.css" id="Link1" runat="server" type="text/css" />
@@ -28,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <script src="https://kit.fontawesome.com/10592dee2b.js" crossorigin="anonymous"></script>
     <!--<link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">-->
 
     <!-- Bootstrap core CSS -->
@@ -53,17 +50,7 @@
                  alert('Please Enter Numeric values.');
                  return false;
              }
-        }
-
-        $(document).ready(function () {
-
-             $("#vddate").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                format: "dd/mm/yyyy",
-                language: "tr"
-            });
-        });
+         }
 
 
    </script>
@@ -97,59 +84,72 @@
              text-align:left;
          }
 
+         .center {
+            text-align:center;
+        }
+
+        .whitespace  
+        {
+            white-space: normal !important;
+        }
 
      </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div class="container-fluid">
-        
-            <h2>
-                CheckList
-          </h2>        
-        
-
+             
      <div class ="row" style="margin-top: 15px">
          <div style="width:80%;margin:auto;">
-            
-             <table id="Table5" class="Table" style="width: 100%;">
-                <%--<tr><td colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</td></tr>--%>
-                  <asp:GridView ID="Check_list" Width="100%" runat="server" AutoGenerateColumns="False" OnRowDataBound="Check_list_RowDataBound">
-            <Columns>
-                <asp:TemplateField> <%--HeaderText="Check List of Supporting Documents"><HeaderStyle CssClass="row_heading whitespace" BorderStyle="Solid" />--%>
-                    <HeaderTemplate>
-                        <tr><th colspan="12" class="row_heading">Check List of Supporting Documents - For Medium Enterprises</th></tr>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblmasterid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>
-                        <asp:Label ID="lbllist" runat="server" Text='<%# Eval("list") %>'></asp:Label>
-                            <td>
-                                <asp:RadioButton ID="Yes" Text="YES" GroupName="group" runat="server" />
-                            </td>
-                            <td >
-                                <asp:RadioButton ID="No" Text="NO" GroupName="group" runat="server" />
-                            </td>
-                            <td >
-                                <asp:RadioButton ID="NA" Text="N/A" GroupName="group" runat="server" />
-                            </td>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                </Columns>
-        </asp:GridView>
-        </table>
-        </div>
+            <asp:Label ID="lblmsg" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
+        <table id="Table1" class="Table" style="width: 100%;">
+                <tr>
+                    <td colspan = "10" class="rpt_header"><h3>Market Information</h3></td>
+                    <td colspan = "2" class="td center"><i class="fas fa-plus-circle fa-w-15 fa-fw fa-2x"></i></td>
+                </tr>
+            <asp:Repeater ID="marketinfo" runat="server">
+               <HeaderTemplate>
+                   <tr><td class="td" colspan="2">Id</td>
+                       <td class="td" colspan="3">Suppliers Name</td>
+                       <td class="td" colspan="3">Customers Name</td>
+                       <td class="td" colspan="2">Edit</td>
+                       <td class="td" colspan="2">Delete</td>
+                   </tr>
+               </HeaderTemplate>
+               <ItemTemplate> 
+                   <tr>  
+                       <td colspan="2" class="whitespace center">
+                       <label><%# Eval("Id") %>&nbsp;</label></td>
+                       <td colspan="3" class="whitespace">
+                       <label><%# Eval("supp_name") %>&nbsp;</label></td>
+                       <td colspan="3" class="whitespace">
+                       <label><%# Eval("cust_name") %>&nbsp;</label></td>
+                       <td colspan = "2" class="td center">
+                           <asp:LinkButton runat="server" ID="Edit" class="btn btn-mini" OnClick="Edit_MarketInfo">
+                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                       </asp:LinkButton></td>
+                       <td colspan = "2" class="td center">
+                           <asp:LinkButton runat="server" ID="Delete" class="btn btn-mini" OnClick="Delete_MarketInfo">
+                            <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
+                       </asp:LinkButton></td>
+                       <%--<td colspan = "2" class="td center"><i class="fa fa-pencil fa-fw"></i></td>
+                       <td colspan = "2" class="td center"><i class="fa fa-trash-o fa-fw"></i></td>--%>  
+                   </tr>
+               </ItemTemplate>
+                </asp:Repeater>
+                      </table>
 
              <asp:HiddenField ID="hdfbrwr_type" runat="server" Visible="False" />
-          <div class="text-center" style="margin-top: 15px;">
-            <asp:Label ID="lblmsg" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
-            <asp:Button ID="btnsavedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnsavedata_Click" style ="width:150px"/>              
+     <div class ="row" style="margin-top: 15px;">
+          <%--<div class="text-center">
+           <asp:Button ID="btnsavedata" CssClass="btn btn-secondary btn-sm" runat="server" Text="Save" OnClick="btnsavedata_Click" style ="width:150px"/>            
+            </div>--%>
             </div>
-         <asp:Label ID="lblerror" runat="server" Font-Bold="true" Font-Size="Medium" CssClass="align-content-center"></asp:Label>
           <br />
           <br />
         </div>
          </div>
-        <%--</div>--%>
+        </div>
 
     <!-- daterangepicker -->
     <script src="plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>

@@ -57,16 +57,12 @@ namespace GreenEnergy_ME
         {
             int vstatus = 0;
             string error_status = "";
-            int vindex = 0;
+
             try
             { 
                 obj_cond = new Models.ModelView();
                 foreach (GridViewRow row in Check_list.Rows)
                 {
-                    //RadioButton rbyes = (RadioButton)Check_list.Rows[vindex].FindControl("Yes");
-                    //RadioButton rbNo = (RadioButton)Check_list.Rows[vindex].FindControl("No");
-                    //RadioButton rbNA = (RadioButton)Check_list.Rows[vindex].FindControl("NA");
-
                     RadioButton rbyes = (RadioButton)row.FindControl("rbyes");
                     RadioButton rbNo = (RadioButton)row.FindControl("rbno");
                     RadioButton rbNA = (RadioButton)row.FindControl("rbna");
@@ -84,31 +80,24 @@ namespace GreenEnergy_ME
                         int rbna = Convert.ToInt32(rbNA.Checked);
                         vstatus = obj_cond.Update_checklist(rby, rbn, rbna, client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), master, ref error_status);
 
-                        //RadioButton rbnextyes = (RadioButton)Check_list.Rows[vindex + 1].FindControl("Yes");
-                        //RadioButton rbnextNo = (RadioButton)Check_list.Rows[vindex + 1].FindControl("No");
-                        //RadioButton rbnextNA = (RadioButton)Check_list.Rows[vindex + 1].FindControl("NA");
-
-                        //if (rbnextyes.Checked == false && rbnextNo.Checked == false && rbnextNA.Checked == false)
                          if (rbyes.Checked == false && rbNo.Checked == false && rbNA.Checked == false)
                         {
                             throw new Exception("Please Select All Checkboxes");
                         }
                         else
                         {
-                            //vindex += 1;
-                            //throw new Exception("Record Inserted Succesfully");
                             //lblmsg.Visible = true;
                             //lblmsg.Text = "Record Inserted Succesfully";
                             //lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
                         }
                     }
                 }
-                //throw new Exception("Record inserted suceesfully");
+                throw new Exception("Record inserted suceesfully");
             }
 
             catch (Exception ex)
             {
-                this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + ex.Message.ToString() + "')", true);
+                this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + error_status + "')", true);
             }
         }
 

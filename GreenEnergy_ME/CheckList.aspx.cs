@@ -131,11 +131,14 @@ namespace GreenEnergy_ME
                         {
                             vindex += 1;
                         }
-                    }
 
+                        throw new Exception("Record Inserted Succesfully");
+                    }
+                    
                 }
 
-                throw new Exception("Record inserted suceesfully");
+                
+
             }
 
             catch (Exception ex)

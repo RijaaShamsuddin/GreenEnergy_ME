@@ -8,7 +8,7 @@ using System.Data;
 
 namespace GreenEnergy_ME
 {
-    public partial class Main_MarketInfo : System.Web.UI.Page
+    public partial class Main_Guarantees : System.Web.UI.Page
     {
         Models.ModelView obj_del, brwr, get;
         public int report = 0, dep_id, dep_id_rep;
@@ -40,9 +40,9 @@ namespace GreenEnergy_ME
 
             get = new Models.ModelView();
             dtm = new DataTable();
-            dtm = get.get_marketinfo(client_no, cpno);
-            marketinfo.DataSource = dtm;
-            marketinfo.DataBind();
+            dtm = get.get_guaranteeinfo(client_no, cpno);
+            guaranteeinfo.DataSource = dtm;
+            guaranteeinfo.DataBind();
 
         }
 
@@ -53,12 +53,12 @@ namespace GreenEnergy_ME
             //Reference the Label and TextBox.
             int id = Convert.ToInt32((item.FindControl("lblid") as Label).Text);
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + id + "');", true);
-            Response.Redirect("Edit_Market_Info.aspx?Id=" + id);
+            Response.Redirect("Edit_Guarantees.aspx?Id=" + id);
         }
 
         protected void OnAdd(object sender, EventArgs e)
         {
-            Response.Redirect("Add_Market_Info.aspx");
+            Response.Redirect("Add_Guarantees.aspx");
         }
 
         protected void OnDelete(object sender, EventArgs e)
@@ -72,13 +72,13 @@ namespace GreenEnergy_ME
             try
             {
                 obj_del = new Models.ModelView();
-                vstatus = obj_del.Delete_MarketInfo(ID, client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), ref error_status);
+                vstatus = obj_del.Delete_Guarantee(ID, client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), ref error_status);
                 if (vstatus == 1)
                 {
                     lblmsg.Visible = true;
                     lblmsg.Text = "The Id: " + ID + " data has been deleted";
                     lblmsg.ForeColor = System.Drawing.Color.Red;
-                    Response.Redirect("Main_MarketInfo.aspx");
+                    Response.Redirect("Main_Guarantees.aspx");
                 }
 
                 else

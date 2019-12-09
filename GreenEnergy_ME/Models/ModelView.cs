@@ -44,7 +44,31 @@ namespace GreenEnergy_ME.Models
                 this.db.Cn.Open();
                 this.db.Cmd.CommandType = CommandType.Text;
                 this.db.Cmd.CommandTimeout = 0;
-                string st = "Select * from Market_info where client_no = '" + client_no + "' and cpno = '" + cpno + "' order by id desc ";    
+                string st = "Select * from Market_info where client_no = '" + client_no + "' and cpno = '" + cpno + "' ";    
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
+        }
+
+        public DataTable get_marketinfo_edit(string client_no, string cpno, int ID)
+        {
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "Select * from Market_Info where client_no = '" + client_no + "' and cpno = '" + cpno + "' and Id = " + ID + " ";
                 this.db.Cmd.CommandText = st;
                 this.db.Da.SelectCommand = this.db.Cmd;
                 DataTable dt = new DataTable();
@@ -90,7 +114,7 @@ namespace GreenEnergy_ME.Models
 
         }
 
-        public int Update_MarketInfo_Details(string client_no, string cpno, int brwr_type, string supp_name, double supp_cash,
+        public int Update_MarketInfo_Details(string client_no, string cpno, int ID, int brwr_type, string supp_name, double supp_cash,
             double supp_credit, string supp_tenor, string cust_name, double cust_cash, double cust_credit, string cust_tenor, ref string error_status)
         {
 
@@ -102,7 +126,7 @@ namespace GreenEnergy_ME.Models
                 this.db.Cmd.CommandTimeout = 0;
                 this.db.Cmd.CommandText = "UPDATE Market_info SET supp_name = '" + supp_name + "', supp_cash = " + supp_cash + " , supp_tenor = '" + supp_tenor + "' , supp_credit = " + supp_credit + ", "
                     + "cust_name = '" + cust_name + "' ,cust_cash = " + cust_cash + " ,cust_credit =" + cust_credit + ", cust_tenor = '" + cust_tenor + "' "
-                    + "where client_no = '" + client_no + "' and cpno = '" + cpno + "' and id = (Select max(Id)Id from Market_info where client_no = '" + client_no + "')  ";
+                    + "where client_no = '" + client_no + "' and cpno = '" + cpno + "' and Id = "+ ID +"  ";
                 vstatus = this.db.cmd.ExecuteNonQuery();
                 //this.db.Da.SelectCommand = this.db.Cmd;
                 //DataTable dt = new DataTable();
@@ -146,7 +170,7 @@ namespace GreenEnergy_ME.Models
                 //throw exception;
             }
 
-        }
+        }     
 
         public DataTable get_guaranteeinfo(string client_no, string cpno)
         {
@@ -155,7 +179,31 @@ namespace GreenEnergy_ME.Models
                 this.db.Cn.Open();
                 this.db.Cmd.CommandType = CommandType.Text;
                 this.db.Cmd.CommandTimeout = 0;
-                string st = "Select * from Guarantees where client_no = '" + client_no + "' and cpno = '" + cpno + "' order by id desc ";
+                string st = "Select * from Guarantees where client_no = '" + client_no + "' and cpno = '" + cpno + "' ";
+                this.db.Cmd.CommandText = st;
+                this.db.Da.SelectCommand = this.db.Cmd;
+                DataTable dt = new DataTable();
+                this.db.Da.Fill(dt);
+                this.db.Cn.Close();
+                st = "";
+                return dt;
+
+            }
+            catch (Exception exception)
+            {
+                //return dt = null;
+                throw exception;
+            }
+        }
+
+        public DataTable get_guaranteeinfo_edit(string client_no, string cpno, int ID)
+        {
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                string st = "Select * from Guarantees where client_no = '" + client_no + "' and cpno = '" + cpno + "' and Id = " + ID + " ";
                 this.db.Cmd.CommandText = st;
                 this.db.Da.SelectCommand = this.db.Cmd;
                 DataTable dt = new DataTable();
@@ -200,7 +248,7 @@ namespace GreenEnergy_ME.Models
 
         }
 
-        public int Update_Guarantees(string client_no, string cpno, int brwr_type, string guarantor_name, string guarantee_given,
+        public int Update_Guarantees(string client_no, string cpno, int ID, int brwr_type, string guarantor_name, string guarantee_given,
             double amt_guarantee, string validity_period, double networth_guarantor, ref string error_status)
         {
 
@@ -212,7 +260,35 @@ namespace GreenEnergy_ME.Models
                 this.db.Cmd.CommandTimeout = 0;
                 this.db.Cmd.CommandText = "UPDATE Guarantees SET guarantor_name = '" + guarantor_name + "', guarantee_given = '" + guarantee_given + "' , amt_guarantee = " + amt_guarantee + ", "
                     + "validity_period = '" + validity_period + "' ,networth_guarantor = " + networth_guarantor + " "
-                    + "where client_no = '" + client_no + "' and cpno = '" + cpno + "' and id = (Select max(Id)Id from Guarantees where client_no = '" + client_no + "') ";
+                    + "where client_no = '" + client_no + "' and cpno = '" + cpno + "' and id = "+ID+"  ";
+                vstatus = this.db.cmd.ExecuteNonQuery();
+                //this.db.Da.SelectCommand = this.db.Cmd;
+                //DataTable dt = new DataTable();
+                this.db.Cn.Close();
+
+                return vstatus;
+
+            }
+            catch (Exception ex)
+            {
+                error_status = (ex.Message.ToString()).Replace("'", ""); ;
+                return vstatus = 0;
+                //throw exception;
+            }
+
+        }
+
+        public int Delete_Guarantee(int ID, string client_no, string cpno, int brwr_type, ref string error_status)
+        {
+
+            int vstatus = 0;
+            try
+            {
+                this.db.Cn.Open();
+                this.db.Cmd.CommandType = CommandType.Text;
+                this.db.Cmd.CommandTimeout = 0;
+                this.db.Cmd.CommandText = "DELETE Guarantees WHERE ID = " + ID + " "
+                    + "and client_no = '" + client_no + "' and cpno = '" + cpno + "' and brwr_type = " + brwr_type + " ";
                 vstatus = this.db.cmd.ExecuteNonQuery();
                 //this.db.Da.SelectCommand = this.db.Cmd;
                 //DataTable dt = new DataTable();

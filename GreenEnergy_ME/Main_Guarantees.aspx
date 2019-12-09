@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Main_MarketInfo.aspx.cs" Inherits="GreenEnergy_ME.Main_MarketInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Main_Guarantees.aspx.cs" Inherits="GreenEnergy_ME.Main_Guarantees" %>
 
 <!DOCTYPE html>
 
@@ -114,15 +114,16 @@
                 <tr>
                     <td colspan = "10" class="rpt_header"><h3>Market Information</h3></td>
                     <td colspan = "2" class="td center">
-                        <asp:LinkButton runat="server" ID="Add" class="btn btn-mini" OnClick="OnAdd" OnClientClick = "SetTarget();">
+                        <asp:LinkButton runat="server" ID="AddTB" class="btn btn-mini" OnClick="OnAdd" OnClientClick="return confirm('Do you want to delete this row?');">
                             <i class="fas fa-plus-circle fa-w-15 fa-fw fa-2x"></i>
                         </asp:LinkButton></td>
                 </tr>
-            <asp:Repeater ID="marketinfo" runat="server">
+            <asp:Repeater ID="guaranteeinfo" runat="server">
                <HeaderTemplate>
                    <tr><td class="td" colspan="2">Id</td>
-                       <td class="td" colspan="3">Supplier(s) Name</td>
-                       <td class="td" colspan="3">Customer(s) Name</td>
+                       <td class="td" colspan="2">Guarantor(s) Name</td>
+                       <td class="td" colspan="2">Guarntee Given To</td>
+                       <td class="td" colspan="2">Guarntee Amount</td>
                        <td class="td" colspan="2">Edit</td>
                        <td class="td" colspan="2">Delete</td>
                    </tr>
@@ -131,16 +132,18 @@
                    <tr>  <asp:Label ID="lblid" runat="server" Text='<%# Eval("Id") %>' Visible="false"></asp:Label>
                        <td colspan="2" class="whitespace center">
                        <asp:Label ID="counter" runat="server" Text='<%# Container.ItemIndex + 1 %>'></asp:Label></td>
-                       <td colspan="3" class="whitespace">
-                       <label><%# Eval("supp_name") %>&nbsp;</label></td>
-                       <td colspan="3" class="whitespace">
-                       <label><%# Eval("cust_name") %>&nbsp;</label></td>
+                       <td colspan="2" class="whitespace">
+                       <label><%# Eval("guarantor_name") %>&nbsp;</label></td>
+                       <td colspan="2" class="whitespace">
+                       <label><%# Eval("guarantee_given") %>&nbsp;</label></td>
+                       <td colspan="2" class="whitespace">
+                       <label><%# Eval("amt_guarantee") %>&nbsp;</label></td>
                        <td colspan = "2" class="td center">
                            <asp:LinkButton runat="server" ID="Edit" class="btn btn-mini" OnClick="OnEdit" OnClientClick = "SetTarget();">
                             <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
                        </asp:LinkButton></td>
                        <td colspan = "2" class="td center">
-                           <asp:LinkButton runat="server" ID="Delete" class="btn btn-mini" OnClick="OnDelete" OnClientClick="return confirm('Do you want to delete this row?');">
+                           <asp:LinkButton runat="server" ID="Delete" class="btn btn-mini" OnClick="OnDelete">
                             <i class="fa fa-trash-o fa-fw" aria-hidden="true"></i>
                        </asp:LinkButton></td>
                        <%--<td colspan = "2" class="td center"><i class="fa fa-pencil fa-fw"></i></td>

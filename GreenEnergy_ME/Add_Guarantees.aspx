@@ -60,7 +60,7 @@
              $("#vddate").datepicker({
                 changeMonth: true,
                 changeYear: true,
-                format: "dd/mm/yyyy",
+                format: "mm/dd/yyyy",
                 language: "tr"
             });
         });

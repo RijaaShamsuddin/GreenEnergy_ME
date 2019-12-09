@@ -14,7 +14,7 @@ namespace GreenEnergy_ME
     {
         Models.ModelView obj_cond, brwr;
         //DataTable Cond_Table;
-        public int report = 0, dep_id, dep_id_rep;
+        public int report = 0, dep_id, dep_id_rep, id;
         public string client_no, cpno, nat_bus;
         DataTable dt, dt_market;
 
@@ -23,20 +23,22 @@ namespace GreenEnergy_ME
             //client_no = Request["client_no"];
             //cpno = Request["cpno"];
             //dep_id = Convert.ToInt32(Request["dep_id"]);
-            client_no = "21116";
-            cpno = "109447";
-
-            if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
-            {
-                dep_id_rep = 1;
-            }
-            else
-            {
-                dep_id_rep = 0;
-            }
 
             if (!IsPostBack)
             {
+                client_no = "21116";
+                cpno = "109447";
+                id = Convert.ToInt32(Request.QueryString["Id"]);
+
+                if (dep_id == 900 || dep_id == 910 || dep_id == 1000 || dep_id == 5000 || dep_id == 1140)
+                {
+                    dep_id_rep = 1;
+                }
+                else
+                {
+                    dep_id_rep = 0;
+                }
+
                 brwr = new Models.ModelView();
                 dt = new DataTable();
                 dt = brwr.get_brwrtype(client_no);
@@ -44,7 +46,7 @@ namespace GreenEnergy_ME
 
                 obj_cond = new Models.ModelView();
                 dt_market = new DataTable();
-                dt_market = obj_cond.get_marketinfo(client_no, cpno);
+                dt_market = obj_cond.get_marketinfo_edit(client_no, cpno, id);
                 if (dt_market.Rows.Count > 0 && dt_market != null)
                 {
                     txtsuppname.Text = dt_market.Rows[0]["supp_name"].ToString();
@@ -72,7 +74,10 @@ namespace GreenEnergy_ME
                     && txtcustname.Text != "" && txtcusttenor.Text != "" && flcustcash.Text != "" && flcustcredit.Text != "")
                 {
                     obj_cond = new Models.ModelView();
-                    vstatus = obj_cond.Update_MarketInfo_Details(client_no, cpno, Convert.ToInt32(hdfbrwr_type.Value.ToString()), txtsuppname.Text, Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtsupptenor.Text, txtcustname.Text,
+                    client_no = "21116";
+                    cpno = "109447";
+                    id = Convert.ToInt32(Request.QueryString["Id"]);
+                    vstatus = obj_cond.Update_MarketInfo_Details(client_no, cpno,id, Convert.ToInt32(hdfbrwr_type.Value.ToString()), txtsuppname.Text, Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtsupptenor.Text, txtcustname.Text,
                     Convert.ToDouble(flcustcash.Text), Convert.ToDouble(flcustcredit.Text), txtcusttenor.Text, ref error_status);
                     if (vstatus == 1)
                     {
@@ -115,6 +120,8 @@ namespace GreenEnergy_ME
             {
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + error_status + "')", true);
             }
+
+            Response.Redirect("Main_MarketInfo.aspx");
         }
 
     }

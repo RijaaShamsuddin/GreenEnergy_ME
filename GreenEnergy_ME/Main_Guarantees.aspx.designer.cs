@@ -10,7 +10,7 @@
 namespace GreenEnergy_ME {
     
     
-    public partial class Main_MarketInfo {
+    public partial class Main_Guarantees {
         
         /// <summary>
         /// Table control.
@@ -49,22 +49,22 @@ namespace GreenEnergy_ME {
         protected global::System.Web.UI.WebControls.Label lblmsg;
         
         /// <summary>
-        /// Add control.
+        /// AddTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Add;
+        protected global::System.Web.UI.WebControls.LinkButton AddTB;
         
         /// <summary>
-        /// marketinfo control.
+        /// guaranteeinfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater marketinfo;
+        protected global::System.Web.UI.WebControls.Repeater guaranteeinfo;
         
         /// <summary>
         /// hdfbrwr_type control.

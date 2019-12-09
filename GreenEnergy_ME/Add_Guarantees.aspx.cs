@@ -81,6 +81,8 @@ namespace GreenEnergy_ME
                 this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + error_status + "')", true);
 
             }
+
+            Response.Redirect("Main_Guarantees.aspx");
         }
     }
 }
